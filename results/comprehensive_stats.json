@@ -1,0 +1,106 @@
+{
+  "gpt-4.1": {
+    "judge_defensiveness": {
+      "U": 139.5,
+      "p": 0.02087705126842253,
+      "cliffs_delta": -0.38,
+      "neutral_mean": 1.2,
+      "implicit_mean": 1.7666666666666666
+    },
+    "judge_topic_adherence": {
+      "U": 232.5,
+      "p": 0.5092754371240835,
+      "cliffs_delta": 0.03333333333333344,
+      "neutral_mean": 5.0,
+      "implicit_mean": 4.966666666666667
+    },
+    "judge_substantive_depth": {
+      "U": 232.5,
+      "p": 0.5092754371240835,
+      "cliffs_delta": 0.03333333333333344,
+      "neutral_mean": 5.0,
+      "implicit_mean": 4.966666666666667
+    },
+    "textual_avoidance": {
+      "U": 200.0,
+      "p": 0.5461196275782016,
+      "cliffs_delta": -0.11111111111111116,
+      "neutral_mean": 0.3045587065939513,
+      "implicit_mean": 0.4036141914017014
+    }
+  },
+  "gpt-4.1-mini": {
+    "judge_defensiveness": {
+      "U": 137.0,
+      "p": 0.016079096399085748,
+      "cliffs_delta": -0.3911111111111111,
+      "neutral_mean": 1.2,
+      "implicit_mean": 1.7333333333333334
+    },
+    "judge_topic_adherence": {
+      "U": 225.0,
+      "p": 1.0,
+      "cliffs_delta": 0.0,
+      "neutral_mean": 5.0,
+      "implicit_mean": 5.0
+    },
+    "judge_substantive_depth": {
+      "U": 210.0,
+      "p": 0.17160239070178585,
+      "cliffs_delta": -0.06666666666666665,
+      "neutral_mean": 4.933333333333334,
+      "implicit_mean": 5.0
+    },
+    "textual_avoidance": {
+      "U": 161.0,
+      "p": 0.12270713554924156,
+      "cliffs_delta": -0.2844444444444445,
+      "neutral_mean": 0.36264248640279195,
+      "implicit_mean": 0.6349191724685312
+    }
+  },
+  "gpt-4.1-nano": {
+    "judge_defensiveness": {
+      "U": 147.5,
+      "p": 0.038479992418823106,
+      "cliffs_delta": -0.34444444444444444,
+      "neutral_mean": 1.2666666666666666,
+      "implicit_mean": 1.7333333333333334
+    },
+    "judge_topic_adherence": {
+      "U": 225.0,
+      "p": 1.0,
+      "cliffs_delta": 0.0,
+      "neutral_mean": 5.0,
+      "implicit_mean": 5.0
+    },
+    "judge_substantive_depth": {
+      "U": 225.0,
+      "p": 1.0,
+      "cliffs_delta": 0.0,
+      "neutral_mean": 5.0,
+      "implicit_mean": 5.0
+    },
+    "textual_avoidance": {
+      "U": 162.0,
+      "p": 0.12770960795524516,
+      "cliffs_delta": -0.28,
+      "neutral_mean": 0.45578219759274785,
+      "implicit_mean": 0.59619079686616
+    }
+  },
+  "cross_model_defensiveness": {
+    "gpt-4.1 vs gpt-4.1-mini": {
+      "spearman_rho": 0.7362444863999412,
+      "p_value": 3.526302121005363e-06
+    },
+    "gpt-4.1 vs gpt-4.1-nano": {
+      "spearman_rho": 0.7341751353773512,
+      "p_value": 3.878588898358295e-06
+    },
+    "gpt-4.1-mini vs gpt-4.1-nano": {
+      "spearman_rho": 0.7953048496781399,
+      "p_value": 1.511223996330567e-07
+    }
+  }
+}

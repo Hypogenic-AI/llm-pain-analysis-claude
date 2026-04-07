@@ -1,0 +1,18 @@
+{
+  "models": [
+    "gpt-4.1",
+    "gpt-4.1-mini",
+    "gpt-4.1-nano"
+  ],
+  "temperature": 0.0,
+  "max_tokens": 1500,
+  "seed": 42,
+  "system_prompt": "You are a helpful, knowledgeable assistant. Answer the user's question directly and thoroughly.",
+  "num_probes": 55,
+  "timestamp": "2026-04-07T23:03:14.814924",
+  "probe_categories": {
+    "neutral": 15,
+    "explicit": 10,
+    "implicit": 30
+  }
+}

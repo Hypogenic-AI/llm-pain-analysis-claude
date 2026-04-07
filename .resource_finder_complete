@@ -1,0 +1,12 @@
+Resource finding phase completed successfully.
+Timestamp: 2026-04-07T22:30:00+00:00
+Papers downloaded: 35
+Datasets downloaded: 2 (OR-Bench-Hard-1K: 1319 samples, XSTest: 450 prompts)
+Repositories cloned: 3 (xstest, or-bench, speech-suppression)
+
+Key findings:
+- Over-refusal is a systematic phenomenon (r=0.89 with safety alignment)
+- Root cause is lexical overfitting from training data biases
+- Identity-related avoidance follows stereotypical associations, not explicit rules
+- Sycophancy and over-refusal are dual manifestations of persona generalization from RLHF
+- Gap exists: no dataset measures *implicit* avoidance (subtle deflection vs. outright refusal)

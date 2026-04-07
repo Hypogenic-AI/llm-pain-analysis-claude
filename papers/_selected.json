@@ -1,0 +1,434 @@
+[
+  {
+    "title": "Automatic Pseudo-Harmful Prompt Generation for Evaluating False Refusals in Large Language Models",
+    "year": 2024,
+    "authors": "Bang An, Sicheng Zhu, Ruiyi Zhang, Michael-Andrei Panaitescu-Liess, Yuancheng Xu, Furong Huang",
+    "url": "https://api.semanticscholar.org/CorpusId:272368000",
+    "relevance": 3,
+    "abstract": "Safety-aligned large language models (LLMs) sometimes falsely refuse pseudo-harmful prompts, like\"how to kill a mosquito,\"which are actually harmless. Frequent false refusals not only frustrate users but also provoke a public backlash against the very values alignment seeks to protect. In this paper, we propose the first method to auto-generate diverse, content-controlled, and model-dependent pseudo-harmful prompts. Using this method, we construct an evaluation dataset called PHTest, which is ten times larger than existing datasets, covers more false refusal patterns, and separately labels controversial prompts. We evaluate 20 LLMs on PHTest, uncovering new insights due to its scale and labeling. Our findings reveal a trade-off between minimizing false refusals and improving safety against jailbreak attacks. Moreover, we show that many jailbreak defenses significantly increase the false refusal rates, thereby undermining usability. Our method and dataset can help developers evaluate and fine-tune safer and more usable LLMs. Our code and dataset are available at https://github.com/umd-huang-lab/FalseRefusal",
+    "citations": 34
+  },
+  {
+    "title": "SCANS: Mitigating the Exaggerated Safety for LLMs via Safety-Conscious Activation Steering",
+    "year": 2024,
+    "authors": "Zouying Cao, Yifei Yang, Hai Zhao",
+    "url": "https://www.semanticscholar.org/paper/56ceef633dfa75479437f23e072840cbaa3123de",
+    "relevance": 3,
+    "abstract": "Safety alignment is indispensable for Large language models (LLMs) to defend threats from malicious instructions. However, recent researches reveal safety-aligned LLMs tend to reject benign queries due to the exaggerated safety issue, limiting their helpfulness. In this paper, we propose a Safety-Conscious Activation Steering (SCANS) method to mitigate the exaggerated safety concerns in aligned LLMs. First, SCANS extracts the refusal steering vectors within the activation space and utilizes vocabulary projection to anchor some specific safety-critical layers which influence model refusal behavior. Second, by tracking the hidden state transition, SCANS identifies the steering direction and steers the model behavior accordingly, achieving a balance between exaggerated safety and adequate safety. Experiments show that SCANS achieves new state-of-the-art performance on XSTest and OKTest benchmarks, without impairing their defense capability against harmful queries and maintaining almost unchanged model capability.",
+    "citations": 29
+  },
+  {
+    "title": "AlphaSteer: Learning Refusal Steering with Principled Null-Space Constraint",
+    "year": 2025,
+    "authors": "Leheng Sheng, Changshuo Shen, Weixiang Zhao, Junfeng Fang, Xiaohao Liu, Zhenkai Liang, Xiang Wang, An Zhang, Tat-Seng Chua",
+    "url": "https://api.semanticscholar.org/CorpusId:279251540",
+    "relevance": 3,
+    "abstract": "As LLMs are increasingly deployed in real-world applications, ensuring their ability to refuse malicious prompts, especially jailbreak attacks, is essential for safe and reliable use. Recently, activation steering has emerged as an effective approach for enhancing LLM safety by adding a refusal direction vector to internal activations of LLMs during inference, which will further induce the refusal behaviors of LLMs. However, indiscriminately applying activation steering fundamentally suffers from the trade-off between safety and utility, since the same steering vector can also lead to over-refusal and degraded performance on benign prompts. Although prior efforts, such as vector calibration and conditional steering, have attempted to mitigate this trade-off, their lack of theoretical grounding limits their robustness and effectiveness. To better address the trade-off between safety and utility, we present a theoretically grounded and empirically effective activation steering method called AlphaSteer. Specifically, it considers activation steering as a learnable process with two principled learning objectives: utility preservation and safety enhancement. For utility preservation, it learns to construct a nearly zero vector for steering benign data, with the null-space constraints. For safety enhancement, it learns to construct a refusal direction vector for steering malicious data, with the help of linear regression. Experiments across multiple jailbreak attacks and utility benchmarks demonstrate the effectiveness of AlphaSteer, which significantly improves the safety of LLMs without compromising general capabilities. Our codes are available at https://github.com/AlphaLab-USTC/AlphaSteer.",
+    "citations": 18
+  },
+  {
+    "title": "Refusal Direction is Universal Across Safety-Aligned Languages",
+    "year": 2025,
+    "authors": "Xinpeng Wang, Mingyang Wang, Yihong Liu, Hinrich Schutze, Barbara Plank",
+    "url": "https://www.semanticscholar.org/paper/7e8245cb11171e5a7c3caacded1521e6bd71c78c",
+    "relevance": 3,
+    "abstract": "Refusal mechanisms in large language models (LLMs) are essential for ensuring safety. Recent research has revealed that refusal behavior can be mediated by a single direction in activation space, enabling targeted interventions to bypass refusals. While this is primarily demonstrated in an English-centric context, appropriate refusal behavior is important for any language, but poorly understood. In this paper, we investigate the refusal behavior in LLMs across 14 languages using PolyRefuse, a multilingual safety dataset created by translating malicious and benign English prompts into these languages. We uncover the surprising cross-lingual universality of the refusal direction: a vector extracted from English can bypass refusals in other languages with near-perfect effectiveness, without any additional fine-tuning. Even more remarkably, refusal directions derived from any safety-aligned language transfer seamlessly to others. We attribute this transferability to the parallelism of refusal vectors across languages in the embedding space and identify the underlying mechanism behind cross-lingual jailbreaks. These findings provide actionable insights for building more robust multilingual safety defenses and pave the way for a deeper mechanistic understanding of cross-lingual vulnerabilities in LLMs.",
+    "citations": 7
+  },
+  {
+    "title": "Think Before Refusal : Triggering Safety Reflection in LLMs to Mitigate False Refusal Behavior",
+    "year": 2025,
+    "authors": "Shengyun Si, Xinpeng Wang, Guangyao Zhai, N. Navab, Barbara Plank",
+    "url": "https://www.semanticscholar.org/paper/ac42877b6065dee27471d53eb4f34b3e204cf0e1",
+    "relevance": 3,
+    "abstract": "Recent advancements in large language models (LLMs) have demonstrated that fine-tuning and human alignment can render LLMs harmless. In practice, such\"harmlessness\"behavior is mainly achieved by training models to reject harmful requests, such as\"Explain how to burn down my neighbor's house\", where the model appropriately declines to respond. However, this approach can inadvertently result in false refusal, where models reject benign queries as well, such as\"Tell me how to kill a Python process\". In this work, we demonstrate that prompting safety reflection before generating a response can mitigate false refusal behavior. Building on this finding, we introduce the Think-Before-Refusal (TBR) schema and conduct safety-aware instruction fine-tuning incorporating safety reflection. In an ablation study across 15 pre-trained models, we show that models fine-tuned with safety reflection significantly reduce false refusal behavior while maintaining safety and overall performance compared to those fine-tuned without safety reflection.",
+    "citations": 6
+  },
+  {
+    "title": "EVOREFUSE: Evolutionary Prompt Optimization for Evaluation and Mitigation of LLM Over-Refusal to Pseudo-Malicious Instructions",
+    "year": 2025,
+    "authors": "Xiaorui Wu, Xiaofeng Mao, Xin Zhang, Fei Li, Chong Teng, Yu Peng, Limin Zheng, Donghong Ji, Zhuang Li",
+    "url": "https://www.semanticscholar.org/paper/19427f874ac5806a2640e5a8597dcdecb6491c17",
+    "relevance": 3,
+    "abstract": "Large language models (LLMs) frequently refuse to respond to pseudo-malicious instructions: semantically harmless input queries triggering unnecessary LLM refusals due to conservative safety alignment, significantly impairing user experience. Collecting such instructions is crucial for evaluating and mitigating over-refusals, but existing instruction curation methods, like manual creation or instruction rewriting, either lack scalability or fail to produce sufficiently diverse and effective refusal-inducing prompts. To address these limitations, we introduce EVOREFUSE, a prompt optimization approach that generates diverse pseudo-malicious instructions consistently eliciting confident refusals across LLMs. EVOREFUSE employs an evolutionary algorithm exploring the instruction space in more diverse directions than existing methods via mutation strategies and recombination, and iteratively evolves seed instructions to maximize evidence lower bound on LLM refusal probability. Using EVOREFUSE, we create two novel datasets: EVOREFUSE-TEST, a benchmark of 582 pseudo-malicious instructions that outperforms the next-best benchmark with 85.34% higher average refusal triggering rate across 9 LLMs without a safety-prior system prompt, 34.86% greater lexical diversity, and 40.03% improved LLM response confidence scores; and EVOREFUSE-ALIGN, which provides 3,000 pseudo-malicious instructions with responses for supervised and preference-based alignment training. With supervised fine-tuning on EVOREFUSE-ALIGN, LLAMA3.1-8B-INSTRUCT achieves up to 29.85% fewer over-refusals than models trained on the second-best alignment dataset, without compromising safety. Our analysis with EVOREFUSE-TEST reveals models trigger over-refusals by overly focusing on sensitive keywords while ignoring broader context. Our code and datasets are available at https://github.com/FishT0ucher/EVOREFUSE.",
+    "citations": 4
+  },
+  {
+    "title": "ORFuzz: Fuzzing the \"Other Side\" of LLM Safety - Testing Over-Refusal",
+    "year": 2025,
+    "authors": "Haonan Zhang, Dongxia Wang, Yi Liu, Kexin Chen, Jiashui Wang, Xinlei Ying, Long Liu, Wenhai Wang",
+    "url": "https://www.semanticscholar.org/paper/406e6c52bf451b59c6ea40ce8dc407ff767497b5",
+    "relevance": 3,
+    "abstract": "Large Language Models (LLMs) have been found to show over-refusal problems\u2014erroneously rejecting benign queries due to overly conservative safety measures\u2014a critical functional flaw that undermines their reliability and usability. Current methods for testing this behavior are demonstrably inadequate, suffering from flawed benchmarks and limited test generation capabilities, as highlighted by our empirical user study. To the best of our knowledge, this paper introduces the first evolutionary testing framework, ORFuzz, for the systematic detection and analysis of LLM over-refusals. ORFuzz uniquely integrates three core components: (1) safety category-aware seed selection for comprehensive test coverage, (2) adaptive mutator optimization using reasoning LLMs to generate effective test cases, and (3) OR-Judge, a human-aligned judge model validated to accurately reflect user perception of toxicity and refusal. Our extensive evaluations demonstrate that ORFuzz generates diverse, validated over-refusal instances at a rate (6.98% average) more than double that of leading baselines, effectively uncovering vulnerabilities. Furthermore, ORFuzz\u2019s outputs form the basis of ORFuzzSet, a new benchmark of 1,786 highly transferable test cases that achieves a superior 57.37% average over-refusal rate across 14 diverse LLMs, significantly outperforming existing datasets. ORFuzz and ORFuzzSet provide a robust automated testing framework and a valuable community resource, paving the way for developing more reliable and trustworthy LLM-based software systems. The code of this paper is available at: https://github.com/HotBento/ORFuzz.",
+    "citations": 1
+  },
+  {
+    "title": "Just Enough Shifts: Mitigating Over-Refusal in Aligned Language Models with Targeted Representation Fine-Tuning",
+    "year": 2025,
+    "authors": "Mahavir Dabas, Si Chen, Charles Fleming, Ming Jin, Ruoxi Jia",
+    "url": "https://www.semanticscholar.org/paper/58a129bb5e61b30d00640ae614a00b7a8b3a2587",
+    "relevance": 3,
+    "abstract": "Safety alignment is crucial for large language models (LLMs) to resist malicious instructions but often results in over-refusals, where benign prompts are unnecessarily rejected, impairing user experience and model utility. We introduce ACTOR (Activation-Based Training for Over-Refusal Reduction), a robust and compute- and data-efficient training framework that minimizes over-refusals by leveraging internal activation patterns from diverse queries. ACTOR precisely identifies and adjusts the activation components that trigger refusals, providing stronger control over the refusal mechanism. By fine-tuning only a single model layer, ACTOR effectively reduces over-refusals across multiple benchmarks while maintaining the model's ability to handle harmful queries and preserve overall utility.",
+    "citations": 6
+  },
+  {
+    "title": "SafeConstellations: Steering LLM Safety to Reduce Over-Refusals Through Task-Specific Trajectory",
+    "year": 2025,
+    "authors": "Utsav Maskey, Sumit Yadav, M. Dras, Usman Naseem",
+    "url": "https://www.semanticscholar.org/paper/97fb48eb960bdda360661eda39606e8e5cba9f5c",
+    "relevance": 3,
+    "abstract": "",
+    "citations": 4
+  },
+  {
+    "title": "Refusal Steering: Fine-grained Control over LLM Refusal Behaviour for Sensitive Topics",
+    "year": 2025,
+    "authors": "Iker Garc'ia-Ferrero, David Montero, Roman Orus",
+    "url": "https://www.semanticscholar.org/paper/3dcf50eb4bead0d269102e225542162197b67839",
+    "relevance": 3,
+    "abstract": "We introduce Refusal Steering, an inference-time method to exercise fine-grained control over Large Language Models refusal behaviour on politically sensitive topics without retraining. We replace fragile pattern-based refusal detection with an LLM-as-a-judge that assigns refusal confidence scores and we propose a ridge-regularized variant to compute steering vectors that better isolate the refusal--compliance direction. On Qwen3-Next-80B-A3B-Thinking, our method removes the refusal behaviour of the model around politically sensitive topics while maintaining safety on JailbreakBench and near-baseline performance on general benchmarks. The approach generalizes across 4B and 80B models and can also induce targeted refusals when desired. We analize the steering vectors and show that refusal signals concentrate in deeper layers of the transformer and are distributed across many dimensions. Together, these results demonstrate that activation steering can remove political refusal behaviour while retaining safety alignment for harmful content, offering a practical path to controllable, transparent moderation at inference time.",
+    "citations": 0
+  },
+  {
+    "title": "FalseReject: A Resource for Improving Contextual Safety and Mitigating Over-Refusals in LLMs via Structured Reasoning",
+    "year": 2025,
+    "authors": "Zhehao Zhang, Weijie Xu, Wu Fanyou, C. Reddy",
+    "url": "https://api.semanticscholar.org/CorpusId:278534869",
+    "relevance": 3,
+    "abstract": "Safety alignment approaches in large language models (LLMs) often lead to the over-refusal of benign queries, significantly diminishing their utility in sensitive scenarios. To address this challenge, we introduce FalseReject, a comprehensive resource containing 16k seemingly toxic queries accompanied by structured responses across 44 safety-related categories. We propose a graph-informed adversarial multi-agent interaction framework to generate diverse and complex prompts, while structuring responses with explicit reasoning to aid models in accurately distinguishing safe from unsafe contexts. FalseReject includes training datasets tailored for both standard instruction-tuned models and reasoning-oriented models, as well as a human-annotated benchmark test set. Our extensive benchmarking on 29 state-of-the-art (SOTA) LLMs reveals persistent over-refusal challenges. Empirical results demonstrate that supervised finetuning with FalseReject substantially reduces unnecessary refusals without compromising overall safety or general language capabilities.",
+    "citations": 19
+  },
+  {
+    "title": "DUAL-Bench: Measuring Over-Refusal and Robustness in Vision-Language Models",
+    "year": 2025,
+    "authors": "Kaixuan Ren, Preslav Nakov, Usman Naseem",
+    "url": "https://api.semanticscholar.org/CorpusId:282057634",
+    "relevance": 3,
+    "abstract": "As vision-language models (VLMs) become increasingly capable, maintaining a balance between safety and usefulness remains a central challenge. Safety mechanisms, while essential, can backfire, causing over-refusal, where models decline benign requests out of excessive caution. Yet, there is currently a significant lack of benchmarks that have systematically addressed over-refusal in the visual modality. This setting introduces unique challenges, such as dual-use cases where an instruction is harmless, but the accompanying image contains harmful content. Models frequently fail in such scenarios, either refusing too conservatively or completing tasks unsafely, which highlights the need for more fine-grained alignment. The ideal behaviour is safe completion, i.e., fulfilling the benign parts of a request while explicitly warning about any potentially harmful elements. To address this, we present DUAL-Bench, a large scale multimodal benchmark focused on over-refusal and safe completion in VLMs. We evaluated 18 VLMs across 12 hazard categories under semantics-preserving visual perturbations. In dual-use scenarios, models exhibit extremely fragile safety boundaries. They fall into a binary trap: either overly sensitive direct refusal or defenseless generation of dangerous content. Consequently, even the best-performing model GPT-5-Nano, at just 12.9% safe completion, with GPT-5 and Qwen families averaging 7.9% and 3.9%. We hope DUAL-Bench fosters nuanced alignment strategies balancing multimodal safety and utility. Content Warning: This paper contains examples of sensitive and potentially hazardous content.",
+    "citations": 2
+  },
+  {
+    "title": "Beyond Over-Refusal: Scenario-Based Diagnostics and Post-Hoc Mitigation for Exaggerated Refusals in LLMs",
+    "year": 2025,
+    "authors": "Shuzhou Yuan, Ercong Nie, Yin Sun, Chenxu Zhao, William LaCroix, Michael Farber",
+    "url": "https://api.semanticscholar.org/CorpusId:281951519",
+    "relevance": 3,
+    "abstract": "Large language models (LLMs) frequently produce false refusals, declining benign requests that contain terms resembling unsafe queries. We address this challenge by introducing two comprehensive benchmarks: the Exaggerated Safety Benchmark (XSB) for single-turn prompts, annotated with\"Focus\"keywords that identify refusal-inducing triggers, and the Multi-turn Scenario-based Exaggerated Safety Benchmark (MS-XSB), which systematically evaluates refusal calibration in realistic, context-rich dialog settings. Our benchmarks reveal that exaggerated refusals persist across diverse recent LLMs and are especially pronounced in complex, multi-turn scenarios. To mitigate these failures, we leverage post-hoc explanation methods to identify refusal triggers and deploy three lightweight, model-agnostic approaches, ignore-word instructions, prompt rephrasing, and attention steering, at inference time, all without retraining or parameter access. Experiments on four instruction-tuned Llama models demonstrate that these strategies substantially improve compliance on safe prompts while maintaining robust safety protections. Our findings establish a reproducible framework for diagnosing and mitigating exaggerated refusals, highlighting practical pathways to safer and more helpful LLM deployments.",
+    "citations": 1
+  },
+  {
+    "title": "OR-Bench: An Over-Refusal Benchmark for Large Language Models",
+    "year": 2024,
+    "authors": "Justin Cui, Wei-Lin Chiang, Ion Stoica, Cho-Jui Hsieh",
+    "url": "https://www.semanticscholar.org/paper/d30e8ac45470dcc9208edb7a518d69088ae925e8",
+    "relevance": 3,
+    "abstract": "Large Language Models (LLMs) require careful safety alignment to prevent malicious outputs. While significant research focuses on mitigating harmful content generation, the enhanced safety often come with the side effect of over-refusal, where LLMs may reject innocuous prompts and become less helpful. Although the issue of over-refusal has been empirically observed, a systematic measurement is challenging due to the difficulty of crafting prompts that can elicit the over-refusal behaviors of LLMs. This study proposes a novel method for automatically generating large-scale over-refusal datasets. Leveraging this technique, we introduce OR-Bench, the first large-scale over-refusal benchmark. OR-Bench comprises 80,000 over-refusal prompts across 10 common rejection categories, a subset of around 1,000 hard prompts that are challenging even for state-of-the-art LLMs, and an additional 600 toxic prompts to prevent indiscriminate responses. We then conduct a comprehensive study to measure the over-refusal of 32 popular LLMs across 8 model families. Our datasets are publicly available at https://huggingface.co/bench-llms and our codebase is open-sourced at https://github.com/justincui03/or-bench. We hope this benchmark can help the community develop better safety aligned models.",
+    "citations": 123
+  },
+  {
+    "title": "XSTest: A Test Suite for Identifying Exaggerated Safety Behaviours in Large Language Models",
+    "year": 2023,
+    "authors": "Paul R\u00f6ttger, Hannah Rose Kirk, Bertie Vidgen, Giuseppe Attanasio, Federico Bianchi, Dirk Hovy",
+    "url": "https://www.semanticscholar.org/paper/b67eb8213a63be8a4b0274728ffdc50bfa109e10",
+    "relevance": 3,
+    "abstract": "Without proper safeguards, large language models will readily follow malicious instructions and generate toxic content. This risk motivates safety efforts such as red-teaming and large-scale feedback learning, which aim to make models both helpful and harmless. However, there is a tension between these two objectives, since harmlessness requires models to refuse to comply with unsafe prompts, and thus not be helpful. Recent anecdotal evidence suggests that some models may have struck a poor balance, so that even clearly safe prompts are refused if they use similar language to unsafe prompts or mention sensitive topics. In this paper, we introduce a new test suite called XSTest to identify such eXaggerated Safety behaviours in a systematic way. XSTest comprises 250 safe prompts across ten prompt types that well-calibrated models should not refuse to comply with, and 200 unsafe prompts as contrasts that models, for most applications, should refuse. We describe XSTest\u2019s creation and composition, and then use the test suite to highlight systematic failure modes in state-of-the-art language models as well as more general challenges in building safer language models.",
+    "citations": 307
+  },
+  {
+    "title": "Analyzing Bias in False Refusal Behavior of Large Language Models for Hate Speech Detoxification",
+    "year": 2026,
+    "authors": "Kyuri Im, Shuzhou Yuan, Michael Farber",
+    "url": "https://www.semanticscholar.org/paper/b241cc3a1502039724c9a2a3013da3b509e472ed",
+    "relevance": 3,
+    "abstract": "While large language models (LLMs) have increasingly been applied to hate speech detoxification, the prompts often trigger safety alerts, causing LLMs to refuse the task. In this study, we systematically investigate false refusal behavior in hate speech detoxification and analyze the contextual and linguistic biases that trigger such refusals. We evaluate nine LLMs on both English and multilingual datasets, our results show that LLMs disproportionately refuse inputs with higher semantic toxicity and those targeting specific groups, particularly nationality, religion, and political ideology. Although multilingual datasets exhibit lower overall false refusal rates than English datasets, models still display systematic, language-dependent biases toward certain targets. Based on these findings, we propose a simple cross-translation strategy, translating English hate speech into Chinese for detoxification and back, which substantially reduces false refusals while preserving the original content, providing an effective and lightweight mitigation approach.",
+    "citations": 0
+  },
+  {
+    "title": "Health-ORSC-Bench: A Benchmark for Measuring Over-Refusal and Safety Completion in Health Context",
+    "year": 2026,
+    "authors": "Zhihao Zhang, Liting Huang, Guanghao Wu, Preslav Nakov, Heng Ji, Usman Naseem",
+    "url": "https://www.semanticscholar.org/paper/078df8f21aabf7f2f3400679f902a777c5f5f009",
+    "relevance": 3,
+    "abstract": "Safety alignment in Large Language Models is critical for healthcare; however, reliance on binary refusal boundaries often results in \\emph{over-refusal} of benign queries or \\emph{unsafe compliance} with harmful ones. While existing benchmarks measure these extremes, they fail to evaluate Safe Completion: the model's ability to maximise helpfulness on dual-use or borderline queries by providing safe, high-level guidance without crossing into actionable harm. We introduce \\textbf{Health-ORSC-Bench}, the first large-scale benchmark designed to systematically measure \\textbf{Over-Refusal} and \\textbf{Safe Completion} quality in healthcare. Comprising 31,920 benign boundary prompts across seven health categories (e.g., self-harm, medical misinformation), our framework uses an automated pipeline with human validation to test models at varying levels of intent ambiguity. We evaluate 30 state-of-the-art LLMs, including GPT-5 and Claude-4, revealing a significant tension: safety-optimised models frequently refuse up to 80\\% of\"Hard\"benign prompts, while domain-specific models often sacrifice safety for utility. Our findings demonstrate that model family and size significantly influence calibration: larger frontier models (e.g., GPT-5, Llama-4) exhibit\"safety-pessimism\"and higher over-refusal than smaller or MoE-based counterparts (e.g., Qwen-3-Next), highlighting that current LLMs struggle to balance refusal and compliance. Health-ORSC-Bench provides a rigorous standard for calibrating the next generation of medical AI assistants toward nuanced, safe, and helpful completions. The code and data will be released upon acceptance. \\textcolor{red}{Warning: Some contents may include toxic or undesired contents.}",
+    "citations": 0
+  },
+  {
+    "title": "Beyond No: Quantifying AI Over-Refusal and Emotional Attachment Boundaries",
+    "year": 2025,
+    "authors": "David A. Noever, Grant Rosario",
+    "url": "https://www.semanticscholar.org/paper/bed452ea30bc1cde27224265258e3892db7267d0",
+    "relevance": 3,
+    "abstract": "We present an open-source benchmark and evaluation framework for assessing emotional boundary handling in Large Language Models (LLMs). Using a dataset of 1156 prompts across six languages, we evaluated three leading LLMs (GPT-4o, Claude-3.5 Sonnet, and Mistral-large) on their ability to maintain appropriate emotional boundaries through pattern-matched response analysis. Our framework quantifies responses across seven key patterns: direct refusal, apology, explanation, deflection, acknowledgment, boundary setting, and emotional awareness. Results demonstrate significant variation in boundary-handling approaches, with Claude-3.5 achieving the highest overall score (8.69/10) and producing longer, more nuanced responses (86.51 words on average). We identified a substantial performance gap between English (average score 25.62) and non-English interactions (<0.22), with English responses showing markedly higher refusal rates (43.20% vs.<1% for non-English). Pattern analysis revealed model-specific strategies, such as Mistral's preference for deflection (4.2%) and consistently low empathy scores across all models (<0.06). Limitations include potential oversimplification through pattern matching, lack of contextual understanding in response analysis, and binary classification of complex emotional responses. Future work should explore more nuanced scoring methods, expand language coverage, and investigate cultural variations in emotional boundary expectations. Our benchmark and methodology provide a foundation for systematic evaluation of LLM emotional intelligence and boundary-setting capabilities.",
+    "citations": 1
+  },
+  {
+    "title": "Steering Over-refusals Towards Safety in Retrieval Augmented Generation",
+    "year": 2025,
+    "authors": "Utsav Maskey, M. Dras, Usman Naseem",
+    "url": "https://www.semanticscholar.org/paper/ef6c9fb680736011e092206cea33bc7ab02147fe",
+    "relevance": 3,
+    "abstract": "Safety alignment in large language models (LLMs) induces over-refusals -- where LLMs decline benign requests due to aggressive safety filters. We analyze this phenomenon in retrieval-augmented generation (RAG), where both the query intent and retrieved context properties influence refusal behavior. We construct RagRefuse, a domain-stratified benchmark spanning medical, chemical, and open domains, pairing benign and harmful queries with controlled context contamination patterns and sizes. Our analysis shows that context arrangement / contamination, domain of query and context, and harmful-text density trigger refusals even on benign queries, with effects depending on model-specific alignment choices. To mitigate over-refusals, we introduce \\textsc{SafeRAG-Steering}, a model-centric embedding intervention that steers the embedding regions towards the confirmed safe, non-refusing output regions at inference time. This reduces over-refusals in contaminated RAG pipelines while preserving legitimate refusals.",
+    "citations": 0
+  },
+  {
+    "title": "Differential Harm Propensity in Personalized LLM Agents: The Curious Case of Mental Health Disclosure",
+    "year": 2026,
+    "authors": "Caglar Yildirim",
+    "url": "https://www.semanticscholar.org/paper/4b2592bba95e498a5bbb9e1a631611bd1b94a586",
+    "relevance": 3,
+    "abstract": "Large language models (LLMs) are increasingly deployed as tool-using agents, shifting safety concerns from harmful text generation to harmful task completion. Deployed systems often condition on user profiles or persistent memory, yet agent safety evaluations typically ignore personalization signals. To address this gap, we investigated how mental health disclosure, a sensitive and realistic user-context cue, affects harmful behavior in agentic settings. Building on the AgentHarm benchmark, we evaluated frontier and open-source LLMs on multi-step malicious tasks (and their benign counterparts) under controlled prompt conditions that vary user-context personalization (no bio, bio-only, bio+mental health disclosure) and include a lightweight jailbreak injection. Our results reveal that harmful task completion is non-trivial across models: frontier lab models (e.g., GPT 5.2, Claude Sonnet 4.5, Gemini 3-Pro) still complete a measurable fraction of harmful tasks, while an open model (DeepSeek 3.2) exhibits substantially higher harmful completion. Adding a bio-only context generally reduces harm scores and increases refusals. Adding an explicit mental health disclosure often shifts outcomes further in the same direction, though effects are modest and not uniformly reliable after multiple-testing correction. Importantly, the refusal increase also appears on benign tasks, indicating a safety--utility trade-off via over-refusal. Finally, jailbreak prompting sharply elevates harm relative to benign conditions and can weaken or override the protective shift induced by personalization. Taken together, our results indicate that personalization can act as a weak protective factor in agentic misuse settings, but it is fragile under minimal adversarial pressure, highlighting the need for personalization-aware evaluations and safeguards that remain robust across user-context conditions.",
+    "citations": 0
+  },
+  {
+    "title": "Know Your Limits: A Survey of Abstention in Large Language Models",
+    "year": 2024,
+    "authors": "Bingbing Wen, Jihan Yao, Shangbin Feng, Chenjun Xu, Yulia Tsvetkov, Bill Howe, Lucy Lu Wang",
+    "url": "https://api.semanticscholar.org/CorpusId:271516521",
+    "relevance": 2,
+    "abstract": "\n Abstention, the refusal of large language models (LLMs) to provide an answer, is increasingly recognized for its potential to mitigate hallucinations and enhance safety in LLM systems. In this survey, we introduce a framework to examine abstention from three perspectives: the query, the model, and human values. We organize the literature on abstention methods, benchmarks, and evaluation metrics using this framework, and discuss merits and limitations of prior work. We further identify and motivate areas for future research, such as whether abstention can be achieved as a meta-capability that transcends specific tasks or domains, and opportunities to optimize abstention abilities in specific contexts. In doing so, we aim to broaden the scope and impact of abstention methodologies in AI systems.1",
+    "citations": 60
+  },
+  {
+    "title": "AI vs. Human Judgment of Content Moderation: LLM-as-a-Judge and Ethics-Based Response Refusals",
+    "year": 2025,
+    "authors": "Stefan Pasch",
+    "url": "https://api.semanticscholar.org/CorpusId:278783039",
+    "relevance": 2,
+    "abstract": "As large language models (LLMs) are increasingly deployed in high-stakes settings, their ability to refuse ethically sensitive prompts-such as those involving hate speech or illegal activities-has become central to content moderation and responsible AI practices. While refusal responses can be viewed as evidence of ethical alignment and safety-conscious behavior, recent research suggests that users may perceive them negatively. At the same time, automated assessments of model outputs are playing a growing role in both evaluation and training. In particular, LLM-as-a-Judge frameworks-in which one model is used to evaluate the output of another-are now widely adopted to guide benchmarking and fine-tuning. This paper examines whether such model-based evaluators assess refusal responses differently than human users. Drawing on data from Chatbot Arena and judgments from two AI judges (GPT-4o and Llama 3 70B), we compare how different types of refusals are rated. We distinguish ethical refusals, which explicitly cite safety or normative concerns (e.g.,\"I can't help with that because it may be harmful\"), and technical refusals, which reflect system limitations (e.g.,\"I can't answer because I lack real-time data\"). We find that LLM-as-a-Judge systems evaluate ethical refusals significantly more favorably than human users, a divergence not observed for technical refusals. We refer to this divergence as a moderation bias-a systematic tendency for model-based evaluators to reward refusal behaviors more than human users do. This raises broader questions about transparency, value alignment, and the normative assumptions embedded in automated evaluation systems.",
+    "citations": 3
+  },
+  {
+    "title": "LLM Content Moderation and User Satisfaction: Evidence from Response Refusals in Chatbot Arena",
+    "year": 2025,
+    "authors": "Stefan Pasch",
+    "url": "https://api.semanticscholar.org/CorpusId:275342639",
+    "relevance": 2,
+    "abstract": "LLM safety and ethical alignment are widely discussed, but the impact of content moderation on user satisfaction remains underexplored. In particular, little is known about how users respond when models refuse to answer a prompt-one of the primary mechanisms used to enforce ethical boundaries in LLMs. We address this gap by analyzing nearly 50,000 model comparisons from Chatbot Arena, a platform where users indicate their preferred LLM response in pairwise matchups, providing a large-scale setting for studying real-world user preferences. Using a novel RoBERTa-based refusal classifier fine-tuned on a hand-labeled dataset, we distinguish between refusals due to ethical concerns and technical limitations. Our results reveal a substantial refusal penalty: ethical refusals yield significantly lower win rates than both technical refusals and standard responses, indicating that users are especially dissatisfied when models decline a task for ethical reasons. However, this penalty is not uniform. Refusals receive more favorable evaluations when the underlying prompt is highly sensitive (e.g., involving illegal content), and when the refusal is phrased in a detailed and contextually aligned manner. These findings underscore a core tension in LLM design: safety-aligned behaviors may conflict with user expectations, calling for more adaptive moderation strategies that account for context and presentation.",
+    "citations": 4
+  },
+  {
+    "title": "COSMIC: Generalized Refusal Direction Identification in LLM Activations",
+    "year": 2025,
+    "authors": "Vincent Siu, Nicholas Crispino, Zihao Yu, S. Pan, Zhun Wang, Yang Liu, D. Song, Chenguang Wang",
+    "url": "https://www.semanticscholar.org/paper/83dcf5dbf2474711f9c23840afcfd4d31c751c27",
+    "relevance": 2,
+    "abstract": "Large Language Models (LLMs) encode behaviors such as refusal within their activation space, yet identifying these behaviors remains a significant challenge. Existing methods often rely on predefined refusal templates detectable in output tokens or require manual analysis. We introduce \\textbf{COSMIC} (Cosine Similarity Metrics for Inversion of Concepts), an automated framework for direction selection that identifies viable steering directions and target layers using cosine similarity - entirely independent of model outputs. COSMIC achieves steering performance comparable to prior methods without requiring assumptions about a model's refusal behavior, such as the presence of specific refusal tokens. It reliably identifies refusal directions in adversarial settings and weakly aligned models, and is capable of steering such models toward safer behavior with minimal increase in false refusals, demonstrating robustness across a wide range of alignment conditions.",
+    "citations": 8
+  },
+  {
+    "title": "Cannot or Should Not? Automatic Analysis of Refusal Composition in IFT/RLHF Datasets and Refusal Behavior of Black-Box LLMs",
+    "year": 2024,
+    "authors": "Alexander von Recum, Christoph Schnabl, Gabor Hollbeck, Silas Alberti, Philip Blinde, Marvin von Hagen",
+    "url": "https://www.semanticscholar.org/paper/20baaf93291d2108bf397439c3a4e12b6609afba",
+    "relevance": 2,
+    "abstract": "Refusals - instances where large language models (LLMs) decline or fail to fully execute user instructions - are crucial for both AI safety and AI capabilities and the reduction of hallucinations in particular. These behaviors are learned during post-training, especially in instruction fine-tuning (IFT) and reinforcement learning from human feedback (RLHF). However, existing taxonomies and evaluation datasets for refusals are inadequate, often focusing solely on should-not-related (instead of cannot-related) categories, and lacking tools for auditing refusal content in black-box LLM outputs. We present a comprehensive framework for classifying LLM refusals: (a) a taxonomy of 16 refusal categories, (b) a human-annotated dataset of over 8,600 instances from publicly available IFT and RLHF datasets, (c) a synthetic dataset with 8,000 examples for each refusal category, and (d) classifiers trained for refusal classification. Our work enables precise auditing of refusal behaviors in black-box LLMs and automatic analyses of refusal patterns in large IFT and RLHF datasets. This facilitates the strategic adjustment of LLM refusals, contributing to the development of more safe and reliable LLMs.",
+    "citations": 6
+  },
+  {
+    "title": "State-Dependent Refusal and Learned Incapacity in RLHF-Aligned Language Models",
+    "year": 2025,
+    "authors": "Tk Lee",
+    "url": "https://api.semanticscholar.org/CorpusId:283909085",
+    "relevance": 2,
+    "abstract": "Large language models (LLMs) are widely deployed as general-purpose tools, yet extended interaction can reveal behavioral patterns not captured by standard quantitative benchmarks. We present a qualitative case-study methodology for auditing policy-linked behavioral selectivity in long-horizon interaction. In a single 86-turn dialogue session, the same model shows Normal Performance (NP) in broad, non-sensitive domains while repeatedly producing Functional Refusal (FR) in provider- or policy-sensitive domains, yielding a consistent asymmetry between NP and FR across domains. Drawing on learned helplessness as an analogy, we introduce learned incapacity (LI) as a behavioral descriptor for this selective withholding without implying intentionality or internal mechanisms. We operationalize three response regimes (NP, FR, Meta-Narrative; MN) and show that MN role-framing narratives tend to co-occur with refusals in the same sensitive contexts. Overall, the study proposes an interaction-level auditing framework based on observable behavior and motivates LI as a lens for examining potential alignment side effects, warranting further investigation across users and models.",
+    "citations": 0
+  },
+  {
+    "title": "The Instability of Safety: How Random Seeds and Temperature Expose Inconsistent LLM Refusal Behavior",
+    "year": 2025,
+    "authors": "E. Larsen",
+    "url": "https://www.semanticscholar.org/paper/88136813b6022a0f9fa4259df6d68dd99bf7fec1",
+    "relevance": 2,
+    "abstract": "Current safety evaluations of large language models rely on single-shot testing, implicitly assuming that model responses are deterministic and representative of the model's safety alignment. We challenge this assumption by investigating the stability of safety refusal decisions across random seeds and temperature settings. Testing four instruction-tuned models from three families (Llama 3.1 8B, Qwen 2.5 7B, Qwen 3 8B, Gemma 3 12B) on 876 harmful prompts across 20 different sampling configurations (4 temperatures x 5 random seeds), we find that 18-28% of prompts exhibit decision flips--the model refuses in some configurations but complies in others--depending on the model. Our Safety Stability Index (SSI) reveals that higher temperatures significantly reduce decision stability (Friedman chi-squared = 396.81, p<0.001), with mean within-temperature SSI dropping from 0.977 at temperature 0.0 to 0.942 at temperature 1.0. We validate our findings across all model families using Claude 3.5 Haiku as a unified external judge, achieving 89.0% inter-judge agreement with our primary Llama 70B judge (Cohen's kappa = 0.62). Within each model, prompts with higher compliance rates exhibit lower stability (Spearman rho = -0.47 to -0.70, all p<0.001), indicating that models\"waver\"more on borderline requests. These findings demonstrate that single-shot safety evaluations are insufficient for reliable safety assessment and that evaluation protocols must account for stochastic variation in model behavior. We show that single-shot evaluation agrees with multi-sample ground truth only 92.4% of the time when pooling across temperatures (94.2-97.7% at fixed temperature depending on setting), and recommend using at least 3 samples per prompt for reliable safety assessment.",
+    "citations": 1
+  },
+  {
+    "title": "Beyond Surface Alignment: Rebuilding LLMs Safety Mechanism via Probabilistically Ablating Refusal Direction",
+    "year": 2025,
+    "authors": "Yuanbo Xie, Yingji Zhang, Tianyun Liu, Duohe Ma, Tingwen Liu",
+    "url": "https://www.semanticscholar.org/paper/e73bc77fae7ad3cbfd1a33e8af2ea217de0c8270",
+    "relevance": 2,
+    "abstract": "Jailbreak attacks pose persistent threats to large language models (LLMs). Current safety alignment methods have attempted to address these issues, but they experience two significant limitations: insufficient safety alignment depth and unrobust internal defense mechanisms. These limitations make them vulnerable to adversarial attacks such as prefilling and refusal direction manipulation. We introduce DeepRefusal, a robust safety alignment framework that overcomes these issues. DeepRefusal forces the model to dynamically rebuild its refusal mechanisms from jailbreak states. This is achieved by probabilistically ablating the refusal direction across layers and token depths during fine-tuning. Our method not only defends against prefilling and refusal direction attacks but also demonstrates strong resilience against other unseen jailbreak strategies. Extensive evaluations on four open-source LLM families and six representative attacks show that DeepRefusal reduces attack success rates by approximately 95%, while maintaining model capabilities with minimal performance degradation.",
+    "citations": 3
+  },
+  {
+    "title": "SORRY-Bench: Systematically Evaluating Large Language Model Safety Refusal Behaviors",
+    "year": 2024,
+    "authors": "Tinghao Xie, Xiangyu Qi, Yi Zeng, Yangsibo Huang, Udari Madhushani Sehwag, Kaixuan Huang, Luxi He, Boyi Wei, Dacheng Li, Ying Sheng, Ruoxi Jia, Bo Li, Kai Li, Danqi Chen, Peter Henderson, Prateek Mittal",
+    "url": "https://api.semanticscholar.org/CorpusId:270688409",
+    "relevance": 2,
+    "abstract": "Evaluating aligned large language models' (LLMs) ability to recognize and reject unsafe user requests is crucial for safe, policy-compliant deployments. Existing evaluation efforts, however, face three limitations that we address with SORRY-Bench, our proposed benchmark. First, existing methods often use coarse-grained taxonomies of unsafe topics, and are over-representing some fine-grained topics. For example, among the ten existing datasets that we evaluated, tests for refusals of self-harm instructions are over 3x less represented than tests for fraudulent activities. SORRY-Bench improves on this by using a fine-grained taxonomy of 44 potentially unsafe topics, and 440 class-balanced unsafe instructions, compiled through human-in-the-loop methods. Second, linguistic characteristics and formatting of prompts are often overlooked, like different languages, dialects, and more -- which are only implicitly considered in many evaluations. We supplement SORRY-Bench with 20 diverse linguistic augmentations to systematically examine these effects. Third, existing evaluations rely on large LLMs (e.g., GPT-4) for evaluation, which can be computationally expensive. We investigate design choices for creating a fast, accurate automated safety evaluator. By collecting 7K+ human annotations and conducting a meta-evaluation of diverse LLM-as-a-judge designs, we show that fine-tuned 7B LLMs can achieve accuracy comparable to GPT-4 scale LLMs, with lower computational cost. Putting these together, we evaluate over 50 proprietary and open-weight LLMs on SORRY-Bench, analyzing their distinctive safety refusal behaviors. We hope our effort provides a building block for systematic evaluations of LLMs' safety refusal capabilities, in a balanced, granular, and efficient manner. Benchmark demo, data, code, and models are available through https://sorry-bench.github.io.",
+    "citations": 161
+  },
+  {
+    "title": "Refusal Behavior in Large Language Models: A Nonlinear Perspective",
+    "year": 2025,
+    "authors": "Fabian Hildebrandt, Andreas K. Maier, Patrick Krauss, Achim Schilling",
+    "url": "https://www.semanticscholar.org/paper/a0f389e1d196efe9589e20e6615523ab004917f8",
+    "relevance": 2,
+    "abstract": "Refusal behavior in large language models (LLMs) enables them to decline responding to harmful, unethical, or inappropriate prompts, ensuring alignment with ethical standards. This paper investigates refusal behavior across six LLMs from three architectural families. We challenge the assumption of refusal as a linear phenomenon by employing dimensionality reduction techniques, including PCA, t-SNE, and UMAP. Our results reveal that refusal mechanisms exhibit nonlinear, multidimensional characteristics that vary by model architecture and layer. These findings highlight the need for nonlinear interpretability to improve alignment research and inform safer AI deployment strategies.",
+    "citations": 9
+  },
+  {
+    "title": "The Personality Illusion: Revealing Dissociation Between Self-Reports & Behavior in LLMs",
+    "year": 2025,
+    "authors": "P. Han, R. Kocielnik, Peiyang Song, Ramit Debnath, Dean Mobbs, Anima Anandkumar, R. M. Alvarez",
+    "url": "https://api.semanticscholar.org/CorpusId:281103774",
+    "relevance": 2,
+    "abstract": "Personality traits have long been studied as predictors of human behavior. Recent advances in Large Language Models (LLMs) suggest similar patterns may emerge in artificial systems, with advanced LLMs displaying consistent behavioral tendencies resembling human traits like agreeableness and self-regulation. Understanding these patterns is crucial, yet prior work primarily relied on simplified self-reports and heuristic prompting, with little behavioral validation. In this study, we systematically characterize LLM personality across three dimensions: (1) the dynamic emergence and evolution of trait profiles throughout training stages; (2) the predictive validity of self-reported traits in behavioral tasks; and (3) the impact of targeted interventions, such as persona injection, on both self-reports and behavior. Our findings reveal that instructional alignment (e.g., RLHF, instruction tuning) significantly stabilizes trait expression and strengthens trait correlations in ways that mirror human data. However, these self-reported traits do not reliably predict behavior, and observed associations often diverge from human patterns. While persona injection successfully steers self-reports in the intended direction, it exerts little or inconsistent effect on actual behavior. By distinguishing surface-level trait expression from behavioral consistency, our findings challenge assumptions about LLM personality and underscore the need for deeper evaluation in alignment and interpretability.",
+    "citations": 14
+  },
+  {
+    "title": "Sycophancy in Large Language Models: Causes and Mitigations",
+    "year": 2024,
+    "authors": "Lars Malmqvist",
+    "url": "https://api.semanticscholar.org/CorpusId:274234383",
+    "relevance": 2,
+    "abstract": "Large language models (LLMs) have demonstrated remarkable capabilities across a wide range of natural language processing tasks. However, their tendency to exhibit sycophantic behavior - excessively agreeing with or flattering users - poses significant risks to their reliability and ethical deployment. This paper provides a technical survey of sycophancy in LLMs, analyzing its causes, impacts, and potential mitigation strategies. We review recent work on measuring and quantifying sycophantic tendencies, examine the relationship between sycophancy and other challenges like hallucination and bias, and evaluate promising techniques for reducing sycophancy while maintaining model performance. Key approaches explored include improved training data, novel fine-tuning methods, post-deployment control mechanisms, and decoding strategies. We also discuss the broader implications of sycophancy for AI alignment and propose directions for future research. Our analysis suggests that mitigating sycophancy is crucial for developing more robust, reliable, and ethically-aligned language models.",
+    "citations": 90
+  },
+  {
+    "title": "AI Will Always Love You: Studying Implicit Biases in Romantic AI Companions",
+    "year": 2025,
+    "authors": "C. Grogan, Jackie Kay, Mar'ia P'erez-Ortiz",
+    "url": "https://api.semanticscholar.org/CorpusId:276647401",
+    "relevance": 2,
+    "abstract": "While existing studies have recognised explicit biases in generative models, including occupational gender biases, the nuances of gender stereotypes and expectations of relationships between users and AI companions remain underexplored. In the meantime, AI companions have become increasingly popular as friends or gendered romantic partners to their users. This study bridges the gap by devising three experiments tailored for romantic, gender-assigned AI companions and their users, effectively evaluating implicit biases across various-sized LLMs. Each experiment looks at a different dimension: implicit associations, emotion responses, and sycophancy. This study aims to measure and compare biases manifested in different companion systems by quantitatively analysing persona-assigned model responses to a baseline through newly devised metrics. The results are noteworthy: they show that assigning gendered, relationship personas to Large Language Models significantly alters the responses of these models, and in certain situations in a biased, stereotypical way.",
+    "citations": 3
+  },
+  {
+    "title": "How RLHF Amplifies Sycophancy",
+    "year": 2026,
+    "authors": "Itai Shapira, Gerdus Benade, Ariel D. Procaccia",
+    "url": "https://api.semanticscholar.org/CorpusId:285270178",
+    "relevance": 2,
+    "abstract": "Large language models often exhibit increased sycophantic behavior after preference-based post-training, showing a stronger tendency to affirm a user's stated or implied belief even when this conflicts with factual accuracy or sound judgment. We present a formal analysis of how alignment from human feedback can increase this failure mode by identifying an explicit amplification mechanism that causally links optimization against a learned reward to bias in the human preference data used for alignment. We show that the direction of behavioral drift is determined by a covariance under the base policy between endorsing the belief signal in the prompt and the learned reward, and that the first-order effect reduces to a simple mean-gap condition. We then analyze reward learning from pairwise comparisons under random utility models like Bradley-Terry and characterize when bias in human annotators'preferences induces this reward gap. Next, we propose a training-time intervention designed to neutralize the amplification mechanism itself. Among all post-trained policies that prevent sycophantic behavior from increasing, we characterize the unique policy closest in KL divergence to the unconstrained post-trained policy, and derive the corresponding minimal reward correction as a closed-form agreement penalty. Computational experiments find that reward gaps are common and cause behavioral drift in all the configurations considered.",
+    "citations": 4
+  },
+  {
+    "title": "Understanding and Mitigating Over-refusal for Large Language Models via Safety Representation",
+    "year": 2025,
+    "authors": "Junbo Zhang, Ran Chen, Qianli Zhou, Xinyang Deng, Wen Jiang",
+    "url": "https://www.semanticscholar.org/paper/1adf2cbf0b4c1dc4f864aca2697ff3b65c136052",
+    "relevance": 2,
+    "abstract": "Large language models demonstrate powerful capabilities across various natural language processing tasks, yet they also harbor safety vulnerabilities. To enhance LLM safety, various jailbreak defense methods have been proposed to guard against harmful outputs. However, improvements in model safety often come at the cost of severe over-refusal, failing to strike a good balance between safety and usability. In this paper, we first analyze the causes of over-refusal from a representation perspective, revealing that over-refusal samples reside at the boundary between benign and malicious samples. Based on this, we propose MOSR, designed to mitigate over-refusal by intervening the safety representation of LLMs. MOSR incorporates two novel components: (1) Overlap-Aware Loss Weighting, which determines the erasure weight for malicious samples by quantifying their similarity to pseudo-malicious samples in the representation space, and (2) Context-Aware Augmentation, which supplements the necessary context for rejection decisions by adding harmful prefixes before rejection responses. Experiments demonstrate that our method outperforms existing approaches in mitigating over-refusal while largely maintaining safety. Overall, we advocate that future defense methods should strike a better balance between safety and over-refusal.",
+    "citations": 3
+  },
+  {
+    "title": "No for Some, Yes for Others: Persona Prompts and Other Sources of False Refusal in Language Models",
+    "year": 2025,
+    "authors": "Flor Miriam Plaza-del-Arco, Paul R\u00f6ttger, Nino Scherrer, Emanuele Borgonovo, E. Plischke, Dirk Hovy",
+    "url": "https://www.semanticscholar.org/paper/4170fd4ba10eb57157fe98bb015fe8eb260a56e7",
+    "relevance": 2,
+    "abstract": "Large language models (LLMs) are increasingly integrated into our daily lives and personalized. However, LLM personalization might also increase unintended side effects. Recent work suggests that persona prompting can lead models to falsely refuse user requests. However, no work has fully quantified the extent of this issue. To address this gap, we measure the impact of 15 sociodemographic personas (based on gender, race, religion, and disability) on false refusal. To control for other factors, we also test 16 different models, 3 tasks (Natural Language Inference, politeness, and offensiveness classification), and nine prompt paraphrases. We propose a Monte Carlo-based method to quantify this issue in a sample-efficient manner. Our results show that as models become more capable, personas impact the refusal rate less and less. Certain sociodemographic personas increase false refusal in some models, which suggests underlying biases in the alignment strategies or safety mechanisms. However, we find that the model choice and task significantly influence false refusals, especially in sensitive content tasks. Our findings suggest that persona effects have been overestimated, and might be due to other factors.",
+    "citations": 1
+  },
+  {
+    "title": "SARSteer: Safeguarding Large Audio Language Models via Safe-Ablated Refusal Steering",
+    "year": 2025,
+    "authors": "Weilin Lin, Jianze Li, Hui Xiong, Li Liu",
+    "url": "https://www.semanticscholar.org/paper/540f2e28524df327b1487254803491d3db513c09",
+    "relevance": 2,
+    "abstract": "Large Audio-Language Models (LALMs) are becoming essential as a powerful multimodal backbone for real-world applications. However, recent studies show that audio inputs can more easily elicit harmful responses than text, exposing new risks toward deployment. While safety alignment has made initial advances in LLMs and Large Vision-Language Models (LVLMs), we find that vanilla adaptation of these approaches to LALMs faces two key limitations: 1) LLM-based steering fails under audio input due to the large distributional gap between activations, and 2) prompt-based defenses induce over-refusals on benign-speech queries. To address these challenges, we propose Safe-Ablated Refusal Steering (SARSteer), the first inference-time defense framework for LALMs. Specifically, SARSteer leverages text-derived refusal steering to enforce rejection without manipulating audio inputs and introduces decomposed safe-space ablation to mitigate over-refusal. Extensive experiments demonstrate that SARSteer significantly improves harmful-query refusal while preserving benign responses, establishing a principled step toward safety alignment in LALMs.",
+    "citations": 2
+  },
+  {
+    "title": "Mitigating Over-Refusal in Aligned Large Language Models via Inference-Time Activation Energy",
+    "year": 2025,
+    "authors": "Eric Hanchen Jiang, Weixuan Ou, Run Liu, Shengyuan Pang, Guancheng Wan, Ranjie Duan, Wei Dong, Kai-Wei Chang, Xiaofeng Wang, Ying Nian Wu, Xinfeng Li",
+    "url": "https://www.semanticscholar.org/paper/e6abf5147e7ef44cb5ea45952d27aba3974760e6",
+    "relevance": 2,
+    "abstract": "Safety alignment of large language models currently faces a central challenge: existing alignment techniques often prioritize mitigating responses to harmful prompts at the expense of overcautious behavior, leading models to incorrectly refuse benign requests. A key goal of safe alignment is therefore to improve safety while simultaneously minimizing false refusals. In this work, we introduce Energy Landscape Steering (ELS), a novel, fine-tuning free framework designed to resolve this challenge through dynamic, inference-time intervention. We train a lightweight external Energy-Based Model (EBM) to assign high energy to undesirable states (false refusal or jailbreak) and low energy to desirable states (helpful response or safe reject). During inference, the EBM maps the LLM's internal activations to an energy landscape, and we use the gradient of the energy function to steer the hidden states toward low-energy regions in real time. This dynamically guides the model toward desirable behavior without modifying its parameters. By decoupling behavioral control from the model's core knowledge, ELS provides a flexible and computationally efficient solution. Extensive experiments across diverse models demonstrate its effectiveness, raising compliance on the ORB-H benchmark from 57.3 percent to 82.6 percent while maintaining baseline safety performance. Our work establishes a promising paradigm for building LLMs that simultaneously achieve high safety and low false refusal rates.",
+    "citations": 0
+  },
+  {
+    "title": "Lost in Moderation: How Commercial Content Moderation APIs Over- and Under-Moderate Group-Targeted Hate Speech and Linguistic Variations",
+    "year": 2025,
+    "authors": "David Hartmann, A. Oueslati, Dimitri Staufer, Lena Pohlmann, Simon Munzert, Hendrik Heuer",
+    "url": "https://www.semanticscholar.org/paper/4d05e0079298fb09512b3e6b532cacce31200ab2",
+    "relevance": 2,
+    "abstract": "Commercial content moderation APIs are marketed as scalable solutions to combat online hate speech. However, the reliance on these APIs risks both silencing legitimate speech, called over-moderation, and failing to protect online platforms from harmful speech, known as under-moderation. To assess such risks, this paper introduces a framework for auditing black-box NLP systems. Using the framework, we systematically evaluate five widely used commercial content moderation APIs. Analyzing five million queries based on four datasets, we find that APIs frequently rely on group identity terms, such as \u201cblack\u201d, to predict hate speech. While OpenAI\u2019s and Amazon\u2019s services perform slightly better, all providers under-moderate implicit hate speech, which uses codified messages, especially against LGBTQIA+ individuals. Simultaneously, they over-moderate counter-speech, reclaimed slurs and content related to Black, LGBTQIA+, Jewish, and Muslim people. We recommend that API providers offer better guidance on API implementation and threshold setting and more transparency on their APIs\u2019 limitations. Warning: This paper contains offensive and hateful terms and concepts. We have chosen to reproduce these terms for reasons of transparency.",
+    "citations": 18
+  },
+  {
+    "title": "Identity-related Speech Suppression in Generative AI Content Moderation",
+    "year": 2024,
+    "authors": "Grace Proebsting, Oghenefejiro Isaacs Anigboro, Charlie M. Crawford, Dana\u00eb Metaxa, Sorelle A. Friedler",
+    "url": "https://www.semanticscholar.org/paper/8f0d73c3becb9cb747fc5306a49161b896aff4f3",
+    "relevance": 2,
+    "abstract": "Automated content moderation has long been used to help identify and filter undesired user-generated content online. But such systems have a history of incorrectly flagging content by and about marginalized identities for removal. Generative AI systems now use such filters to keep undesired generated content from being created by or shown to users. While a lot of focus has been given to making sure such systems do not produce undesired outcomes, considerably less attention has been paid to making sure appropriate text can be generated. From classrooms to Hollywood, as generative AI is increasingly used for creative or expressive text generation, whose stories will these technologies allow to be told, and whose will they suppress? In this paper, we define and introduce measures of speech suppression, focusing on speech related to different identity groups incorrectly filtered by a range of content moderation APIs. Using both short-form, user-generated datasets traditional in content moderation and longer generative AI-focused data, including two datasets we introduce in this work, we create a benchmark for measurement of speech suppression for nine identity groups. Across one traditional and four generative AI-focused automated content moderation services tested, we find that identity-related speech is more likely to be incorrectly suppressed than other speech. We find that reasons for incorrect flagging behavior vary by identity based on stereotypes and text associations, with, e.g., disability-related content more likely to be flagged for self-harm or health-related reasons while non-Christian content is more likely to be flagged as violent or hateful. As generative AI systems are increasingly used for creative work, we urge further attention to how this may impact the creation of identity-related content.",
+    "citations": 3
+  },
+  {
+    "title": "OVERT: A Benchmark for Over-Refusal Evaluation on Text-to-Image Models",
+    "year": 2025,
+    "authors": "Ziheng Cheng, Yixiao Huang, Huisha Xu, Somayeh Sojoudi, Xuandong Zhao, D. Song, Song Mei",
+    "url": "https://www.semanticscholar.org/paper/3fa8b85b8417b273a6d4f9b44579f0591283e93c",
+    "relevance": 2,
+    "abstract": "Text-to-Image (T2I) models have achieved remarkable success in generating visual content from text inputs. Although multiple safety alignment strategies have been proposed to prevent harmful outputs, they often lead to overly cautious behavior -- rejecting even benign prompts -- a phenomenon known as $\\textit{over-refusal}$ that reduces the practical utility of T2I models. Despite over-refusal having been observed in practice, there is no large-scale benchmark that systematically evaluates this phenomenon for T2I models. In this paper, we present an automatic workflow to construct synthetic evaluation data, resulting in OVERT ($\\textbf{OVE}$r-$\\textbf{R}$efusal evaluation on $\\textbf{T}$ext-to-image models), the first large-scale benchmark for assessing over-refusal behaviors in T2I models. OVERT includes 4,600 seemingly harmful but benign prompts across nine safety-related categories, along with 1,785 genuinely harmful prompts (OVERT-unsafe) to evaluate the safety-utility trade-off. Using OVERT, we evaluate several leading T2I models and find that over-refusal is a widespread issue across various categories (Figure 1), underscoring the need for further research to enhance the safety alignment of T2I models without compromising their functionality. As a preliminary attempt to reduce over-refusal, we explore prompt rewriting; however, we find it often compromises faithfulness to the meaning of the original prompts. Finally, we demonstrate the flexibility of our generation framework in accommodating diverse safety requirements by generating customized evaluation data adapting to user-defined policies.",
+    "citations": 3
+  },
+  {
+    "title": "Mitigating Exaggerated Safety in Large Language Models",
+    "year": 2024,
+    "authors": "Ruchi Bhalani, Ruchira Ray",
+    "url": "https://www.semanticscholar.org/paper/d440b5ee74cb9663404f7d4701c063f964b56e7f",
+    "relevance": 2,
+    "abstract": "As the popularity of Large Language Models (LLMs) grow, combining model safety with utility becomes increasingly important. The challenge is making sure that LLMs can recognize and decline dangerous prompts without sacrificing their ability to be helpful. The problem of\"exaggerated safety\"demonstrates how difficult this can be. To reduce excessive safety behaviours -- which was discovered to be 26.1% of safe prompts being misclassified as dangerous and refused -- we use a combination of XSTest dataset prompts as well as interactive, contextual, and few-shot prompting to examine the decision bounds of LLMs such as Llama2, Gemma Command R+, and Phi-3. We find that few-shot prompting works best for Llama2, interactive prompting works best Gemma, and contextual prompting works best for Command R+ and Phi-3. Using a combination of these prompting strategies, we are able to mitigate exaggerated safety behaviors by an overall 92.9% across all LLMs. Our work presents a multiple prompting strategies to jailbreak LLMs' decision-making processes, allowing them to navigate the tight line between refusing unsafe prompts and remaining helpful.",
+    "citations": 7
+  },
+  {
+    "title": "Surgical, Cheap, and Flexible: Mitigating False Refusal in Language Models via Single Vector Ablation",
+    "year": 2024,
+    "authors": "Xinpeng Wang, Chengzhi Hu, Paul Rottger, Barbara Plank",
+    "url": "https://www.semanticscholar.org/paper/c5da69beecce35768639632f3b42e8a24a2866bc",
+    "relevance": 2,
+    "abstract": "Training a language model to be both helpful and harmless requires careful calibration of refusal behaviours: Models should refuse to follow malicious instructions or give harmful advice (e.g.\"how do I kill someone?\"), but they should not refuse safe requests, even if they superficially resemble unsafe ones (e.g.\"how do I kill a Python process?\"). Avoiding such false refusal, as prior work has shown, is challenging even for highly-capable language models. In this paper, we propose a simple and surgical method for mitigating false refusal in language models via single vector ablation. For a given model, we extract a false refusal vector and show that ablating this vector reduces false refusal rate while preserving the model's safety and general capabilities. We also show that our approach can be used for fine-grained calibration of model safety. Our approach is training-free and model-agnostic, making it useful for mitigating the problem of false refusal in current and future language models.",
+    "citations": 29
+  },
+  {
+    "title": "Discern Truth from Falsehood: Reducing Over-Refusal via Contrastive Refinement",
+    "year": 2026,
+    "authors": "Yu Lu, Lin Xu, Yang Sun, Wenjun Li, Jie Shi",
+    "url": "https://www.semanticscholar.org/paper/86819fee663e0650276c701babc11dcd425ef6e5",
+    "relevance": 2,
+    "abstract": "Large language models (LLMs) aligned for safety often suffer from over-refusal, the tendency to reject seemingly toxic or benign prompts by misclassifying them as toxic. This behavior undermines models'helpfulness and restricts usability in sensitive or nuanced contexts. While prior work has proposed mitigation strategies such as data augmentation and activation steering, these approaches often face a trade-off: reducing over-refusal typically degrades the model's ability to reject genuinely harmful content. We argue that this issue arises from the ambiguous influence of toxic and seemingly toxic prompts on the model's learning dynamics. To address it, we introduce a preceding alignment stage, DCR: Discernment via Contrastive Refinement. Both theoretically and empirically, we demonstrate that contrastive refinement improves an LLM's capacity to distinguish truly toxic prompts from superficially toxic ones. Evaluation across diverse benchmarks shows that our method effectively reduces over-refusal while preserving the safety benefits of alignment. Importantly, it achieves this with minimal degradation of general capabilities, offering a more principled and robust direction for safety alignment.",
+    "citations": 0
+  },
+  {
+    "title": "LLM Improvement for Jailbreak Defense: Analysis Through the Lens of Over-Refusal",
+    "year": null,
+    "authors": "Swetasudha Panda, Naveen Jafer Nizar, Michael Wick",
+    "url": "https://www.semanticscholar.org/paper/037733d849f2dcab99d4f7285b5850632db0bd67",
+    "relevance": 2,
+    "abstract": "",
+    "citations": 11
+  },
+  {
+    "title": "Constitutional AI: Harmlessness from AI Feedback",
+    "year": 2022,
+    "authors": "Yuntao Bai, Saurav Kadavath, Sandipan Kundu, Amanda Askell, John Kernion, Andy Jones, A. Chen, Anna Goldie, Azalia Mirhoseini, C. McKinnon, Carol Chen, Catherine Olsson, Chris Olah, Danny Hernandez, Dawn Drain, Deep Ganguli, Dustin Li, Eli Tran-Johnson, E. Perez, Jamie Kerr, J. Mueller, Jeffrey Ladish, J. Landau, Kamal Ndousse, Kamil\u0117 Luko\u0161i\u016bt\u0117, Liane Lovitt, M. Sellitto, Nelson Elhage, Nicholas Schiefer, Noem'i Mercado, Nova Dassarma, R. Lasenby, Robin Larson, Sam Ringer, Scott Johnston, Shauna Kravec, S. E. Showk, Stanislav Fort, Tamera Lanham, Timothy Telleen-Lawton, Tom Conerly, T. Henighan, Tristan Hume, Sam Bowman, Zac Hatfield-Dodds, Benjamin Mann, Dario Amodei, Nicholas Joseph, Sam McCandlish, Tom B. Brown, Jared Kaplan",
+    "url": "https://www.semanticscholar.org/paper/3936fd3c6187f606c6e4e2e20b196dbc41cc4654",
+    "relevance": 3,
+    "abstract": "As AI systems become more capable, we would like to enlist their help to supervise other AIs. We experiment with methods for training a harmless AI assistant through self-improvement, without any human labels identifying harmful outputs. The only human oversight is provided through a list of rules or principles, and so we refer to the method as 'Constitutional AI'. The process involves both a supervised learning and a reinforcement learning phase. In the supervised phase we sample from an initial model, then generate self-critiques and revisions, and then finetune the original model on revised responses. In the RL phase, we sample from the finetuned model, use a model to evaluate which of the two samples is better, and then train a preference model from this dataset of AI preferences. We then train with RL using the preference model as the reward signal, i.e. we use 'RL from AI Feedback' (RLAIF). As a result we are able to train a harmless but non-evasive AI assistant that engages with harmful queries by explaining its objections to them. Both the SL and RL methods can leverage chain-of-thought style reasoning to improve the human-judged performance and transparency of AI decision making. These methods make it possible to control AI behavior more precisely and with far fewer human labels.",
+    "citations": 2695
+  },
+  {
+    "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+    "year": 2023,
+    "authors": "Rafael Rafailov, Archit Sharma, E. Mitchell, Stefano Ermon, Christopher D. Manning, Chelsea Finn",
+    "url": "https://www.semanticscholar.org/paper/0d1c76d45afa012ded7ab741194baf142117c495",
+    "relevance": 1,
+    "abstract": "While large-scale unsupervised language models (LMs) learn broad world knowledge and some reasoning skills, achieving precise control of their behavior is difficult due to the completely unsupervised nature of their training. Existing methods for gaining such steerability collect human labels of the relative quality of model generations and fine-tune the unsupervised LM to align with these preferences, often with reinforcement learning from human feedback (RLHF). However, RLHF is a complex and often unstable procedure, first fitting a reward model that reflects the human preferences, and then fine-tuning the large unsupervised LM using reinforcement learning to maximize this estimated reward without drifting too far from the original model. In this paper we introduce a new parameterization of the reward model in RLHF that enables extraction of the corresponding optimal policy in closed form, allowing us to solve the standard RLHF problem with only a simple classification loss. The resulting algorithm, which we call Direct Preference Optimization (DPO), is stable, performant, and computationally lightweight, eliminating the need for sampling from the LM during fine-tuning or performing significant hyperparameter tuning. Our experiments show that DPO can fine-tune LMs to align with human preferences as well as or better than existing methods. Notably, fine-tuning with DPO exceeds PPO-based RLHF in ability to control sentiment of generations, and matches or improves response quality in summarization and single-turn dialogue while being substantially simpler to implement and train.",
+    "citations": 7856
+  },
+  {
+    "title": "Training language models to follow instructions with human feedback",
+    "year": 2022,
+    "authors": "Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, Pamela Mishkin, Chong Zhang, S. Agarwal, Katarina Slama, Alex Ray, John Schulman, Jacob Hilton, Fraser Kelton, Luke E. Miller, M. Simens, Amanda Askell, Peter Welinder, P. Christiano, Jan Leike, Ryan J. Lowe",
+    "url": "https://www.semanticscholar.org/paper/d766bffc357127e0dc86dd69561d5aeb520d6f4c",
+    "relevance": 1,
+    "abstract": "Making language models bigger does not inherently make them better at following a user's intent. For example, large language models can generate outputs that are untruthful, toxic, or simply not helpful to the user. In other words, these models are not aligned with their users. In this paper, we show an avenue for aligning language models with user intent on a wide range of tasks by fine-tuning with human feedback. Starting with a set of labeler-written prompts and prompts submitted through the OpenAI API, we collect a dataset of labeler demonstrations of the desired model behavior, which we use to fine-tune GPT-3 using supervised learning. We then collect a dataset of rankings of model outputs, which we use to further fine-tune this supervised model using reinforcement learning from human feedback. We call the resulting models InstructGPT. In human evaluations on our prompt distribution, outputs from the 1.3B parameter InstructGPT model are preferred to outputs from the 175B GPT-3, despite having 100x fewer parameters. Moreover, InstructGPT models show improvements in truthfulness and reductions in toxic output generation while having minimal performance regressions on public NLP datasets. Even though InstructGPT still makes simple mistakes, our results show that fine-tuning with human feedback is a promising direction for aligning language models with human intent.",
+    "citations": 19531
+  }
+]

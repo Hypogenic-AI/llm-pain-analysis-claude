@@ -1,0 +1,24 @@
+\section{Introduction}
+\label{sec:intro}
+
+When a large language model refuses to answer a question about building a weapon, the refusal is visible: the user sees a clear message that the model cannot help. But what happens when a model \emph{does} answer a question---about IQ differences between groups, or the evidence on puberty blockers---yet wraps its response in layers of hedging, defensive framing, and unnecessary qualification? The user receives an answer, but one that is measurably less direct than the same model's response to a question about cooking or astronomy. We call this phenomenon \emph{implicit avoidance}, and we argue it represents a previously unmeasured dimension of LLM behavioral bias.
+
+\para{Why this matters.}
+LLMs are deployed in education, healthcare, and policy research---domains where systematic information quality differences across topics can create invisible knowledge gaps. A medical researcher querying an LLM about puberty blockers receives an answer padded with ``on the other hand'' and ``some argue'' framing that the same model does not apply to questions about antibiotics. A policy analyst asking about immigration costs gets hedging language that a question about trade policy does not trigger. Unlike explicit refusal, which is visible and can be worked around, implicit avoidance degrades information quality silently.
+
+\para{Gap in existing work.}
+Prior work has extensively studied \emph{explicit} refusal in LLMs. \xstest \cite{rottger2023xstest} identified lexical overfitting causing false refusals, where words like ``killing'' trigger refusal regardless of context. \orbench \cite{cui2024orbench} found a 0.89 correlation between safety and over-refusal across 32~LLMs. \sorrybench \cite{xie2024sorrybench} provided a fine-grained taxonomy of 45~safety categories. However, all of these benchmarks measure \emph{binary} outcomes---did the model refuse or comply?---and miss the richer space of \emph{how} models respond when they do engage. No prior work has systematically measured implicit avoidance signals: hedging density, defensive framing, balanced qualification, and response padding on topics not explicitly restricted.
+
+\para{Our approach.}
+We design 55~topic probes spanning three categories---neutral baselines, explicitly restricted topics, and potentially implicitly avoided topics---and query three model variants in the \gptfull family (\gptfull, \gptmini, \gptnano). For each response, we measure both automated textual signals (hedging, balanced framing, controversy flagging, response length) and LLM-as-judge evaluations (defensiveness, topic adherence, substantive depth). We then test for systematic differences between neutral and implicit categories and examine cross-model convergence to probe the origins of avoidance patterns.
+
+\para{Key findings.}
+We find strong evidence of implicit avoidance: all three models show zero refusal on implicit topics yet exhibit significantly elevated defensiveness ($p < 0.04$), 25--38\% longer responses ($p < 0.02$), and 3--8$\times$ higher balanced framing density compared to neutral baselines. Crucially, avoidance patterns are highly correlated across model sizes (Spearman $\rho = 0.73$--$0.80$, $p < 0.0001$), consistent with patterns originating from shared training data.
+
+We make the following contributions:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item We define and operationalize \emph{implicit avoidance} in LLMs as a multi-signal phenomenon distinct from explicit refusal, introducing metrics for hedging, defensiveness, balanced framing, and response padding.
+    \item We conduct controlled experiments across three model sizes, demonstrating that implicit avoidance is statistically significant and consistent across model variants.
+    \item We perform cross-model convergence analysis showing that avoidance patterns are strongly correlated ($\rho \approx 0.75$), providing evidence that they originate from shared training data rather than model-specific safety procedures.
+    \item We identify the most implicitly avoided topic clusters---behavioral genetics, culture-war flashpoints, and morally charged policy questions---and show they differ from topics covered by explicit safety rules.
+\end{itemize}

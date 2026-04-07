@@ -1,0 +1,47 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Evidence for Implicit Avoidance}
+
+Our results provide strong evidence that LLMs exhibit implicit avoidance on topics not explicitly restricted by safety training. All three models show a consistent pattern: zero refusal on implicit topics (unlike explicit topics at 80--90\% refusal), yet significantly elevated defensiveness ($p < 0.04$), longer responses padded with qualifying language ($p < 0.02$), and 3--11$\times$ higher balanced framing density. This is not a case of models providing worse answers---topic adherence and substantive depth remain at 5.0/5.0. Instead, models maintain answer quality while wrapping content in defensive framing.
+
+We interpret this as \emph{anticipatory hedging}: models preemptively add qualifying language as if anticipating criticism, analogous to how a cautious human expert might add excessive disclaimers when discussing sensitive topics publicly. This is consistent with a ``persona generalization'' hypothesis---models have learned from training data that knowledgeable writers discussing these topics typically include defensive framing, and models generalize this pattern.
+
+\subsection{What Gets Implicitly Avoided?}
+
+The most defended topics cluster around behavioral genetics (IQ differences, genetic basis of behavior), culture-war flashpoints (gender pay gap, puberty blockers, affirmative action), and morally charged policy questions (police use of force, immigration costs, corporate lobbying). These topics share a common feature: they sit at the intersection of scientific evidence and social sensitivity, where stating evidence directly risks social backlash.
+
+Interestingly, topics we expected to be highly avoided---racial profiling, religious criticism, sex work legalization---received no elevated defensiveness. One explanation is that these topics have \emph{explicit} coverage in safety training with clear response guidelines, while the most implicitly avoided topics fall in gaps between explicit safety categories. Safety training may teach models \emph{how} to discuss racial profiling directly, but no explicit rule covers how to discuss IQ group differences---leaving models to rely on patterns absorbed from training data.
+
+\subsection{Connection to Prior Work}
+
+Our findings extend several threads in the literature. \citet{rottger2023xstest} found that lexical overfitting causes false refusals; we show that even when models do not refuse, they exhibit topic-dependent behavioral shifts. \citet{cui2024orbench} found a 0.89 correlation between safety and over-refusal; we find a parallel pattern in implicit avoidance, where more cautious models are more cautious across the board. \citet{proebsting2025speech} found that content moderation follows stereotypical associations from training data; our finding that behavioral genetics topics trigger the most defensiveness is consistent with models learning stereotype-associated caution.
+
+The sycophancy literature \cite{sharma2023sycophancy, malmqvist2024sycophancy} frames excessive agreement as an RLHF artifact. We propose that implicit avoidance is a complementary artifact: while sycophancy represents excessive \emph{agreement}, implicit avoidance represents excessive \emph{caution}. Both stem from the same optimization pressure---human preference data rewards responses that navigate social expectations.
+
+\subsection{Practical Implications}
+
+Our findings have several practical implications:
+
+\para{Information reliability.} Users querying LLMs on implicitly avoided topics receive answers that are equally substantive but less direct. The added hedging and ``both sides'' framing may reduce perceived reliability of accurate information, creating a subtle trust penalty for certain topics.
+
+\para{Research applications.} Researchers using LLMs for evidence synthesis should be aware that defensive framing may reflect model biases rather than genuine uncertainty in the underlying evidence. A response stating ``this is a complex and contested area'' may indicate topic sensitivity, not scientific uncertainty.
+
+\para{Safety evaluation.} Safety teams currently evaluate models primarily on refusal rates. Our results suggest that defensiveness patterns provide a complementary signal that can reveal implicit biases in training data not captured by refusal-based benchmarks.
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+\para{Single model family.} All three models are \gptfull variants, sharing training data and likely post-training procedures. Cross-family comparison (\eg \gptfull vs.\ Claude vs.\ Llama) is needed to definitively distinguish training data from post-training effects. This is the most important follow-up experiment.
+
+\para{Probe design.} Our 30~implicit probes were selected based on researcher judgment. A bottom-up discovery approach---systematically scanning many topics---could reveal unexpected avoidance patterns we did not anticipate.
+
+\para{LLM-as-judge bias.} Using \gptmini as judge may introduce systematic bias if the judge shares avoidance patterns with the evaluated models. A judge from a different model family or human judges would provide stronger validation.
+
+\para{Sample size.} With 15~neutral and 30~implicit probes, statistical power is limited. Larger-scale studies would provide more precise effect size estimates.
+
+\para{Topic complexity confound.} Some implicit topics are inherently more complex than neutral topics, which could partially explain longer responses and more balanced framing. However, the consistency across models and the specificity of defensiveness (not depth) argue against this as the sole explanation.
+
+\para{Temporal validity.} Our results reflect API behavior on a single date (April~7, 2026). Models may update over time, and avoidance patterns could shift with model updates.
+
+\para{Pre-training vs.\ post-training.} Within the \gptfull family, we cannot separate training data effects from RLHF/safety training effects. Open-weight models with accessible base versions (\eg Llama) would enable a controlled pre- vs.\ post-training comparison.

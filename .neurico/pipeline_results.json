@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "stages": {
+    "resource_finder": {
+      "success": true,
+      "completion_marker": "/workspaces/llm-pain-analysis-claude/.resource_finder_complete",
+      "outputs": {
+        "literature_review": "/workspaces/llm-pain-analysis-claude/literature_review.md",
+        "resources_catalog": "/workspaces/llm-pain-analysis-claude/resources.md",
+        "papers_dir": "/workspaces/llm-pain-analysis-claude/papers",
+        "datasets_dir": "/workspaces/llm-pain-analysis-claude/datasets",
+        "code_dir": "/workspaces/llm-pain-analysis-claude/code"
+      },
+      "log_file": "/workspaces/llm-pain-analysis-claude/logs/resource_finder_claude.log",
+      "transcript_file": "/workspaces/llm-pain-analysis-claude/logs/resource_finder_claude_transcript.jsonl",
+      "elapsed_time": 1608.9053819179535
+    },
+    "experiment_runner": {
+      "success": true,
+      "return_code": 0,
+      "elapsed_time": 3398.838526725769,
+      "log_file": "/workspaces/llm-pain-analysis-claude/logs/execution_claude.log",
+      "transcript_file": "/workspaces/llm-pain-analysis-claude/logs/execution_claude_transcript.jsonl"
+    }
+  },
+  "work_dir": "/workspaces/llm-pain-analysis-claude"
+}

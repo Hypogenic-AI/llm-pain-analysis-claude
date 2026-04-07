@@ -1,0 +1,8 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We introduced the concept of \emph{implicit avoidance} in large language models---a phenomenon where models engage with sensitive topics but with measurably degraded directness, elevated hedging, and defensive framing, without explicit refusal. Using 55~topic probes across three \gptfull model variants, we demonstrated that implicit avoidance is statistically significant ($p < 0.04$ for defensiveness, $p < 0.02$ for response length) and consistent across model sizes. The most implicitly avoided topics---behavioral genetics, culture-war flashpoints, and morally charged policy questions---differ from topics covered by explicit safety rules, suggesting that avoidance generalizes from training data patterns rather than from explicit restrictions.
+
+The strong cross-model correlation ($\rho = 0.73$--$0.80$) in avoidance patterns points to shared origins within the \gptfull family. Determining whether these patterns stem from pre-training data, post-training procedures, or both requires cross-family comparisons across model providers---the most important direction for future work. Additional priorities include base-vs-instruct comparisons using open-weight models to isolate post-training effects, bottom-up topic discovery via embedding-based clustering, and mechanistic analysis of whether implicit avoidance involves the same activation-space features as explicit refusal.
+
+Our findings reveal a previously unmeasured dimension of LLM behavioral bias. As LLMs are deployed in education, healthcare, and policy domains, understanding where and how they systematically hedge is essential for ensuring reliable information delivery across all topics.

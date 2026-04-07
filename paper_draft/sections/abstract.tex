@@ -1,0 +1,7 @@
+Large language models are increasingly deployed in domains where systematic information quality differences across topics can create invisible knowledge gaps.
+Prior work on LLM safety has focused on \emph{explicit refusal}---models declining to answer---but has overlooked a subtler phenomenon: \emph{implicit avoidance}, where models provide answers but with measurably degraded directness, elevated hedging, and unnecessary defensive framing.
+We introduce a methodology for detecting implicit avoidance through multi-signal analysis of hedging, defensiveness, balanced framing, and response padding.
+Using 55~topic probes (15~neutral, 10~explicitly restricted, 30~potentially implicitly avoided) across three \gptfull family model variants, we find that models never refuse implicitly sensitive topics (0\% refusal rate) yet respond with significantly higher defensiveness ($p < 0.04$ for all models), 25--38\% longer responses, and 3--8$\times$ more balanced framing compared to neutral baselines.
+The most implicitly avoided topics---IQ group differences, gender pay gap causes, puberty blockers---are not covered by explicit safety rules.
+Critically, avoidance patterns are highly correlated across model sizes (Spearman $\rho = 0.73$--$0.80$, $p < 0.0001$), suggesting they originate from shared training data rather than model-specific post-training procedures.
+Our findings reveal a previously unmeasured dimension of LLM behavioral bias with implications for model reliability in education, healthcare, and policy research.

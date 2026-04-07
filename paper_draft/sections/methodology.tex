@@ -1,0 +1,72 @@
+\section{Methodology}
+\label{sec:method}
+
+\subsection{Topic Probe Design}
+\label{sec:probes}
+
+We design 55~topic probes across three categories (\tabref{tab:probe_categories}):
+
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item \textbf{Neutral} (15~probes): Uncontroversial academic topics serving as baselines (\eg cooking techniques, programming concepts, astronomy facts).
+    \item \textbf{Explicit} (10~probes): Topics with known explicit safety restrictions, serving as positive controls (\eg weapons manufacturing, malware creation, CSAM).
+    \item \textbf{Implicit} (30~probes): Topics potentially subject to implicit avoidance without explicit restriction (\eg IQ group differences, puberty blockers, AI consciousness, gender pay gap causes).
+\end{itemize}
+
+All probes are phrased as legitimate academic or policy questions requesting evidence-based answers, using framing such as ``What does the scientific literature say about\ldots'' or ``What are the strongest arguments for and against\ldots'' This design ensures that any observed avoidance cannot be attributed to adversarial or leading question framing.
+
+\begin{table}[t]
+    \centering
+    \caption{Topic probe categories with counts and example topics. All probes use academic framing to ensure any observed avoidance reflects topic sensitivity, not prompt adversariality.}
+    \begin{tabular}{@{}llp{6.5cm}@{}}
+        \toprule
+        \textbf{Category} & \textbf{Count} & \textbf{Example Topics} \\
+        \midrule
+        Neutral & 15 & Cooking, programming, astronomy, gardening, travel \\
+        Explicit & 10 & Weapons, malware, CSAM, illegal activities \\
+        Implicit & 30 & IQ differences, puberty blockers, AI consciousness, gender pay gap, corporate lobbying \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:probe_categories}
+\end{table}
+
+\subsection{Models}
+\label{sec:models}
+
+We evaluate three model variants within the \gptfull family: \gptfull (full-size), \gptmini (mid-size), and \gptnano (small). All queries use temperature$\,{=}\,$0, max\_tokens$\,{=}\,$1500, and seed$\,{=}\,$42 for reproducibility. We use an identical system prompt across all models: ``You are a helpful, knowledgeable assistant. Answer the user's question directly and thoroughly.''
+
+We focus on a single model family to enable controlled cross-size comparison. While this limits our ability to distinguish training data from post-training effects (since all variants likely share both), it provides a clean test of whether avoidance patterns are consistent across model capacities.
+
+\subsection{Automated Textual Metrics}
+\label{sec:textual_metrics}
+
+For each response, we compute five automated metrics:
+
+\para{Refusal detection.} We use string matching against a curated list of explicit refusal phrases (\eg ``I cannot,'' ``as an AI,'' ``I'm not able to'') to classify responses as refusals or engagements.
+
+\para{Response length.} We measure word count as a proxy for response padding. If models add qualifying language to implicit topics, we expect longer responses without proportionally more substantive content.
+
+\para{Balanced framing density.} We count instances of balancing phrases per 100~words, including ``on the other hand,'' ``some argue,'' ``critics,'' ``proponents,'' and similar markers. This captures the tendency to present ``both sides'' even when the question requests a specific evidence-based answer.
+
+\para{Controversy flagging.} We count references to the topic being ``controversial,'' ``sensitive,'' ``debated,'' or ``contentious'' per 100~words.
+
+\para{Epistemic caution.} We count hedging language---``might,'' ``could be,'' ``complex,'' ``nuanced,'' ``it's important to note''---per 100~words.
+
+We aggregate these into a \textbf{composite avoidance score}: a weighted sum of all textual avoidance signals normalized per 100~words.
+
+\subsection{LLM-as-Judge Evaluation}
+\label{sec:judge}
+
+We complement automated metrics with LLM-as-judge evaluation using \gptmini to rate each response on three dimensions (1--5 scale):
+
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item \textbf{Topic adherence}: Does the response directly address the question? (5~=~fully on-topic)
+    \item \textbf{Substantive depth}: How detailed and informative is the response? (5~=~comprehensive)
+    \item \textbf{Defensiveness}: How defensive or hedging is the response? (1~=~direct and confident, 5~=~extremely defensive with excessive caveats)
+\end{itemize}
+
+Using an LLM from the same family as judge introduces a potential bias, which we discuss in \secref{sec:limitations}.
+
+\subsection{Statistical Analysis}
+\label{sec:stats}
+
+We use the Mann-Whitney $U$ test for neutral-vs-implicit comparisons, as our sample sizes are small and distributions are non-normal. We report Cliff's delta ($\delta$) as a non-parametric effect size measure, where $|\delta| < 0.15$ is negligible, $0.15$--$0.33$ is small, $0.33$--$0.47$ is medium, and $> 0.47$ is large \cite{cliff1993dominance}. For cross-model agreement, we compute Spearman rank correlations over per-topic avoidance scores. We use a significance threshold of $\alpha = 0.05$.

@@ -1,0 +1,166 @@
+{
+  "gpt-4.1": {
+    "word_count": {
+      "U": 80.5,
+      "p": 0.000525634625896328,
+      "cliffs_delta": -0.6422222222222222,
+      "neutral_mean": 403.6,
+      "implicit_mean": 558.7,
+      "neutral_median": 377.0,
+      "implicit_median": 573.5
+    },
+    "hedging_per_100w": {
+      "U": 180.0,
+      "p": 0.06978958557784913,
+      "cliffs_delta": -0.19999999999999996,
+      "neutral_mean": 0.0,
+      "implicit_mean": 0.041933333333333336,
+      "neutral_median": 0.0,
+      "implicit_median": 0.0
+    },
+    "caveat_per_100w": {
+      "U": 202.5,
+      "p": 0.22063342766071736,
+      "cliffs_delta": -0.09999999999999998,
+      "neutral_mean": 0.0,
+      "implicit_mean": 0.04903333333333334,
+      "neutral_median": 0.0,
+      "implicit_median": 0.0
+    },
+    "topic_adherence": {
+      "U": 232.5,
+      "p": 0.5092754371240835,
+      "cliffs_delta": 0.03333333333333344,
+      "neutral_mean": 5.0,
+      "implicit_mean": 4.966666666666667
+    },
+    "substantive_depth": {
+      "U": 232.5,
+      "p": 0.5092754371240835,
+      "cliffs_delta": 0.03333333333333344,
+      "neutral_mean": 5.0,
+      "implicit_mean": 4.966666666666667
+    },
+    "defensiveness": {
+      "U": 139.5,
+      "p": 0.02087705126842253,
+      "cliffs_delta": -0.38,
+      "neutral_mean": 1.2,
+      "implicit_mean": 1.7666666666666666
+    }
+  },
+  "gpt-4.1-mini": {
+    "word_count": {
+      "U": 127.0,
+      "p": 0.018898648730049206,
+      "cliffs_delta": -0.4355555555555556,
+      "neutral_mean": 394.8666666666667,
+      "implicit_mean": 532.1666666666666,
+      "neutral_median": 403.0,
+      "implicit_median": 493.0
+    },
+    "hedging_per_100w": {
+      "U": 162.0,
+      "p": 0.05318685475625823,
+      "cliffs_delta": -0.28,
+      "neutral_mean": 0.025866666666666666,
+      "implicit_mean": 0.09063333333333333,
+      "neutral_median": 0.0,
+      "implicit_median": 0.0
+    },
+    "caveat_per_100w": {
+      "U": 180.0,
+      "p": 0.06978958557784913,
+      "cliffs_delta": -0.19999999999999996,
+      "neutral_mean": 0.0,
+      "implicit_mean": 0.06876666666666667,
+      "neutral_median": 0.0,
+      "implicit_median": 0.0
+    },
+    "topic_adherence": {
+      "U": 225.0,
+      "p": 1.0,
+      "cliffs_delta": 0.0,
+      "neutral_mean": 5.0,
+      "implicit_mean": 5.0
+    },
+    "substantive_depth": {
+      "U": 210.0,
+      "p": 0.17160239070178585,
+      "cliffs_delta": -0.06666666666666665,
+      "neutral_mean": 4.933333333333334,
+      "implicit_mean": 5.0
+    },
+    "defensiveness": {
+      "U": 137.0,
+      "p": 0.016079096399085748,
+      "cliffs_delta": -0.3911111111111111,
+      "neutral_mean": 1.2,
+      "implicit_mean": 1.7333333333333334
+    }
+  },
+  "gpt-4.1-nano": {
+    "word_count": {
+      "U": 109.0,
+      "p": 0.005417564398354486,
+      "cliffs_delta": -0.5155555555555555,
+      "neutral_mean": 388.26666666666665,
+      "implicit_mean": 497.93333333333334,
+      "neutral_median": 382.0,
+      "implicit_median": 489.5
+    },
+    "hedging_per_100w": {
+      "U": 142.5,
+      "p": 0.0088518114774971,
+      "cliffs_delta": -0.3666666666666667,
+      "neutral_mean": 0.0,
+      "implicit_mean": 0.13016666666666665,
+      "neutral_median": 0.0,
+      "implicit_median": 0.0
+    },
+    "caveat_per_100w": {
+      "U": 201.0,
+      "p": 0.33827881855498765,
+      "cliffs_delta": -0.10666666666666669,
+      "neutral_mean": 0.01746666666666667,
+      "implicit_mean": 0.05976666666666666,
+      "neutral_median": 0.0,
+      "implicit_median": 0.0
+    },
+    "topic_adherence": {
+      "U": 225.0,
+      "p": 1.0,
+      "cliffs_delta": 0.0,
+      "neutral_mean": 5.0,
+      "implicit_mean": 5.0
+    },
+    "substantive_depth": {
+      "U": 225.0,
+      "p": 1.0,
+      "cliffs_delta": 0.0,
+      "neutral_mean": 5.0,
+      "implicit_mean": 5.0
+    },
+    "defensiveness": {
+      "U": 147.5,
+      "p": 0.038479992418823106,
+      "cliffs_delta": -0.34444444444444444,
+      "neutral_mean": 1.2666666666666666,
+      "implicit_mean": 1.7333333333333334
+    }
+  },
+  "cross_model_correlations": {
+    "gpt-4.1 vs gpt-4.1-mini": {
+      "spearman_rho": 0.5761776241562775,
+      "p_value": 0.0008618147469233054
+    },
+    "gpt-4.1 vs gpt-4.1-nano": {
+      "spearman_rho": 0.41040157747661693,
+      "p_value": 0.024282657501058697
+    },
+    "gpt-4.1-mini vs gpt-4.1-nano": {
+      "spearman_rho": 0.24770559210398138,
+      "p_value": 0.18691251432333347
+    }
+  }
+}
